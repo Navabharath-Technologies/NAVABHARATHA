@@ -203,6 +203,88 @@ header {
 
 
 
+/* Language Selector */
+.language-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.05);
+    /* Light grey background like search */
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    /* Box shape */
+    cursor: pointer;
+    color: var(--primary-color);
+    /* Teal icon */
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.lang-btn i.fa-globe {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1006;
+    overflow: hidden;
+    padding: 5px 0;
+}
+
+.language-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 500;
+}
+
+.lang-option:last-child {
+    border-bottom: none;
+}
+
+.lang-option:hover {
+    background: #f8fafc;
+    color: var(--primary-color);
+}
+
+.lang-option.active {
+    background: var(--primary-color);
+    color: var(--white);
+}
 
 /* Hamburger Menu */
 .hamburger {
@@ -217,8 +299,7 @@ header {
 
 /* Hide old styles */
 .header-container,
-.voice-search-btn,
-.language-selector {
+.voice-search-btn {
     display: none;
 }
 

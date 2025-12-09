@@ -1,62 +1,14 @@
-// Translation data
-const translations = {
-    en: {
-        // Navigation
-        nav_home: "Home",
-        nav_about: "About Us",
-        nav_services: "Services",
-        nav_contact: "Contact",
+// Translation data is loaded from translations.js
 
-        // Hero Section
-        hero_title_1: "SUSTAINABLE ORGANIZATION FOR CONSISTENCY",
-        hero_description_1: "We empower businesses with intelligent technology solutions that drive innovation, enhance efficiency, and create sustainable value.",
-        hero_title_2: "Get Bronze Certified within 24 Hours",
-        hero_description_2: "Golden opportunity for MSMEs to become world-class manufacturers through Zero Defect, Zero Effect practices.",
-        hero_title_3: "Expert ZED Consulting",
-        hero_description_3: "Professional guidance to help your business achieve manufacturing excellence and global standards.",
-        hero_cta: "Get Started",
-
-        // About Section
-        about_title: "About Us",
-        about_description: "Navabharath Technologies is a leading IT solutions provider dedicated to delivering innovative and robust digital products. With a team of expert developers and designers, we transform ideas into reality. Our mission is to empower businesses with scalable, efficient technology and comprehensive end-to-end services.",
-        about_feature1: "Innovative Solutions",
-        about_feature2: "Digital Marketing",
-        about_feature3: "Customer-Centric Approach",
-        about_feature4: "Expert Team",
-
-        // Services Section
-        services_title: "Our Services",
-        services_subtitle: "Comprehensive solutions for your business needs",
-        service1_title: "Zed certification",
-        service1_description: "Achieve Zero Defect Zero Effect certification.",
-        service2_title: "ISO",
-        service2_description: "International Organization for Standardization certification services.",
-        service3_title: "ISI",
-        service3_description: "Indian Standards Institution (ISI) mark certification.",
-        service4_title: "Zed assessment",
-        service4_description: "Comprehensive ZED assessment for your business.",
-        service5_title: "Zed consulting",
-        service5_description: "Expert consulting for ZED implementation.",
-        service6_title: "Fssai",
-        service6_description: "Food Safety and Standards Authority of India registration and licensing.",
-
-        // Contact Section
-        contact_title: "Contact Us",
-        contact_subtitle: "Ready to start your project? Get in touch with us today.",
-        form_name: "Name",
-        form_email: "Email",
-        form_message: "Message",
-        form_submit: "Send Message",
-
-        // Footer
-        footer_tagline: "SUSTAINABLE ORGANIZATION FOR CONSISTENCY",
-        footer_links_title: "Quick Links",
-        footer_about: "About",
-        footer_services: "Services",
-        footer_contact: "Contact",
-        footer_social_title: "Follow Us",
-        footer_copyright: "© 2025 Navabharatha. All rights reserved."
-    }
+// Language codes mapping
+const langCodes = {
+    en: 'EN',
+    kn: 'KN',
+    hi: 'HI',
+    ta: 'TA',
+    te: 'TE',
+    mr: 'MR',
+    ml: 'ML'
 };
 
 // Language codes mapping
@@ -81,6 +33,75 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             notification.classList.remove('show');
         }, 5000);
+    }
+
+    // Language Dropdown Functionality
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const currentLangSpan = document.getElementById('currentLang');
+
+    // Load saved language or default to English
+    let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+    updateLanguage(currentLang);
+
+    // Toggle dropdown (only if elements exist)
+    if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+            // langBtn.parentElement.classList.toggle('active'); // Removed as parent styling might not be needed for round button
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                langDropdown.classList.remove('active');
+            }
+        });
+
+        // Language selection
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const selectedLang = option.getAttribute('data-lang');
+                updateLanguage(selectedLang);
+                localStorage.setItem('selectedLanguage', selectedLang);
+                langDropdown.classList.remove('active');
+            });
+        });
+    }
+
+    // Update language function
+    function updateLanguage(lang) {
+        currentLang = lang;
+        // if (currentLangSpan) { // Removed as we don't display text in the round button
+        //     currentLangSpan.textContent = langCodes[lang];
+        // }
+
+        // Update active state in dropdown
+        langOptions.forEach(option => {
+            if (option.getAttribute('data-lang') === lang) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+
+        // Translate all elements with data-translate attribute
+        const elementsToTranslate = document.querySelectorAll('[data-translate]');
+        elementsToTranslate.forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+
+        // Handle RTL for Arabic
+        if (lang === 'ar') {
+            document.body.setAttribute('dir', 'rtl');
+        } else {
+            document.body.setAttribute('dir', 'ltr');
+        }
     }
 
     // Form submission handler
