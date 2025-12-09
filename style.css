@@ -194,8 +194,11 @@ header {
     border: none;
     cursor: pointer;
     padding: 4px;
-    color: var(--primary-color);
 }
+
+
+
+
 
 
 
@@ -813,6 +816,8 @@ footer {
         justify-content: space-between;
         align-items: center;
         padding: 10px 15px;
+        flex-wrap: nowrap;
+        /* Prevent wrapping */
     }
 
     .hamburger {
@@ -820,11 +825,18 @@ footer {
         align-items: center;
         justify-content: center;
         color: var(--white);
+        /* Updated for dark theme if needed, user sets navbar white so this might need to be dark */
+        color: var(--primary-color);
+        /* Correct color for white navbar */
         background: none;
         border: none;
         font-size: 1.5rem;
         cursor: pointer;
         padding: 8px;
+        order: -1;
+        /* Move to the left */
+        margin-right: auto;
+        /* Push other items to the right */
     }
 
     nav {
@@ -874,13 +886,22 @@ footer {
     .nav-right {
         order: 1;
         margin-left: 0;
+        /* Reset margin */
         z-index: 1002;
+        flex: 1;
+        /* Allow to take available space if needed, or just be flexible */
+        display: flex;
+        justify-content: flex-end;
+        /* Align search to right */
     }
 
     .main-nav .search-container {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.05);
         flex: 1;
-        max-width: 140px;
+        max-width: 200px;
+        /* Increased width as requested */
+        width: 100%;
+        /* Take full width up to max-width */
     }
 
     .main-nav .search-input {

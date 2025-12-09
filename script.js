@@ -63,6 +63,7 @@ const translations = {
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Navabharath Technologies website loaded');
 
