@@ -1,0 +1,78 @@
+/* Custom Notification Styles */
+.custom-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 10000;
+    display: none;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.custom-notification.show {
+    display: block;
+}
+
+.custom-notification.success {
+    background-color: #27488f;
+    color: white;
+}
+
+.custom-notification.error {
+    background-color: #ef4444;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-notification {
+        right: 20px;
+        left: 20px;
+        min-width: auto;
+        width: auto;
+        max-width: none;
+        top: 20px;
+        text-align: center;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}

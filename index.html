@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navabharath Technologies</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notification.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Custom Notification -->
+    <div id="customNotification" class="custom-notification"></div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <!-- Top Header with Logo -->
+        <div class="top-header">
+            <div class="container top-header-container">
+                <div class="logo">
+                    <img src="assets/navabharatha_logo.png" alt="Navabharatha">
+                </div>
+                <div class="zed-branding">
+                    <h3>NAVABHARATHA</h3>
+                    <p>SUSTAINABLE ORGANIZATION FOR CONSISTENCY</p>
+                    <small>REGSTD. 2023</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <div class="main-nav">
+            <div class="container main-nav-container">
+                <nav>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home" data-translate="nav_home">Home</a></li>
+                        <li><a href="#about" data-translate="nav_about">About</a></li>
+                        <li><a href="#services" data-translate="nav_services">Services</a></li>
+                        <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-right">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+                        <button class="search-btn" id="searchBtn" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                    </div>
+                    <div class="language-selector">
+                        <button class="lang-btn" id="langBtn" aria-label="Select Language">
+                            <i class="fas fa-globe"></i>
+                            <span id="currentLang">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="langDropdown">
+                            <div class="lang-option" data-lang="en">English</div>
+                            <div class="lang-option" data-lang="kn">ಕನ್ನಡ (Kannada)</div>
+                            <div class="lang-option" data-lang="hi">हिंदी (Hindi)</div>
+                            <div class="lang-option" data-lang="ta">தமிழ் (Tamil)</div>
+                            <div class="lang-option" data-lang="te">తెలుగు (Telugu)</div>
+                            <div class="lang-option" data-lang="mr">मराठी (Marathi)</div>
+                            <div class="lang-option" data-lang="ml">മലയാളം (Malayalam)</div>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 data-translate="hero_title_1">SUSTAINABLE ORGANIZATION FOR CONSISTENCY</h1>
+                <p data-translate="hero_description_1">Our organization offers a wide range of professional services,
+                    including certification assistance, documentation, audits, consulting, and technical assessments.
+                    With a focus on sustainability and innovation, we help institutions, businesses, and government
+                    bodies improve their operational standards, achieve regulatory compliance, and successfully complete
+                    critical development projects.</p>
+                <a href="#contact" class="btn btn-primary" data-translate="hero_cta">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/hero-image.png" alt="Technology Solutions">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="assets/about-image.png" alt="About Navabharath Technologies">
+            </div>
+            <div class="about-content">
+                <h2 data-translate="about_title">About Us</h2>
+                <p data-translate="about_description">Navabharatha Sustainable Organization for Consistently is a
+                    multidisciplinary consultancy dedicated to delivering high-quality government project support,
+                    certification services, and sustainability-driven solutions. We specialize in planning, executing,
+                    and managing government initiatives across various sectors, ensuring compliance, efficiency, and
+                    long-term impact. By combining expertise, transparency, and consistent performance, Navabharatha
+                    Sustainable Organization for Consistently aims to contribute to national progress and build a
+                    better, and more efficient future.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="services_title">Our Services</h2>
+                <p data-translate="services_subtitle">Comprehensive solutions for your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-certificate"></i></div>
+                    <h3 data-translate="service1_title">Zed Certification</h3>
+                    <p data-translate="service1_description">Achieve Zero Defect Zero Effect certification.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h3 data-translate="service5_title">Zed Consulting</h3>
+                    <p data-translate="service5_description">Expert consulting for ZED implementation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 data-translate="service4_title">Zed Assessment</h3>
+                    <p data-translate="service4_description">Comprehensive ZED assessment for your business.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-globe"></i></div>
+                    <h3 data-translate="service2_title">ISO</h3>
+                    <p data-translate="service2_description">International Organization for Standardization
+                        certification services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-check-circle"></i></div>
+                    <h3 data-translate="service3_title">ISI</h3>
+                    <p data-translate="service3_description">Indian Standards Institution (ISI) mark certification.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-utensils"></i></div>
+                    <h3 data-translate="service6_title">FSSAI</h3>
+                    <p data-translate="service6_description">Food Safety and Standards Authority of India registration
+                        and licensing.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-briefcase"></i></div>
+                    <h3 data-translate="service7_title">Business Consulting</h3>
+                    <p data-translate="service7_description">Strategic business consulting to help your company grow and
+                        succeed.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 data-translate="service8_title">Software Solutions</h3>
+                    <p data-translate="service8_description">Custom software development and digital transformation
+                        services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2 data-translate="contact_title">Contact Us</h2>
+                <p data-translate="contact_subtitle">Get in touch with us today.</p>
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@navabharatha.com</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91-8213554589</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>No.15, JTK Layout, Kuvempu Nagar,<br> Mysore, Karnataka - 570023</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name" data-translate="form_name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-translate="form_email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-translate="form_message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-translate="form_submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="assets/navabharatha_logo.png" alt="Navabharath Technologies">
+                <p data-translate="footer_tagline">SUSTAINABLE ORGANIZATION FOR CONSISTENCY</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-translate="footer_links_title">Quick Links</h4>
+                <ul>
+                    <li><a href="#home" data-translate="nav_home">Home</a></li>
+                    <li><a href="#about" data-translate="footer_about">About</a></li>
+                    <li><a href="#services" data-translate="footer_services">Services</a></li>
+                    <li><a href="#contact" data-translate="footer_contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4 data-translate="footer_social_title">Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1SLmz1mbFB/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+                    <a href="https://www.linkedin.com/in/navabharatha-sustainable-organization-523534393?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/navabharatha_sustainable?igsh=MTc2eTA4OWltYnZscQ=="
+                        target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="footer_copyright">&copy; 2025 Navabharatha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
