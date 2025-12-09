@@ -60,15 +60,7 @@ const translations = {
 };
 
 // Language codes mapping
-const langCodes = {
-    en: 'EN',
-    kn: 'KN',
-    hi: 'HI',
-    ta: 'TA',
-    te: 'TE',
-    mr: 'MR',
-    ml: 'ML'
-};
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -76,76 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // Language Dropdown Functionality
-    const langBtn = document.getElementById('langBtn');
-    const langDropdown = document.getElementById('langDropdown');
-    const langOptions = document.querySelectorAll('.lang-option');
-    const currentLangSpan = document.getElementById('currentLang');
 
-    // Load saved language or default to English
-    let currentLang = localStorage.getItem('selectedLanguage') || 'en';
-    updateLanguage(currentLang);
-
-    // Toggle dropdown (only if elements exist)
-    if (langBtn && langDropdown) {
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langDropdown.classList.toggle('active');
-            langBtn.parentElement.classList.toggle('active');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-                langDropdown.classList.remove('active');
-                langBtn.parentElement.classList.remove('active');
-            }
-        });
-
-        // Language selection
-        langOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                const selectedLang = option.getAttribute('data-lang');
-                updateLanguage(selectedLang);
-                localStorage.setItem('selectedLanguage', selectedLang);
-                langDropdown.classList.remove('active');
-                langBtn.parentElement.classList.remove('active');
-            });
-        });
-    }
-
-    // Update language function
-    function updateLanguage(lang) {
-        currentLang = lang;
-        if (currentLangSpan) {
-            currentLangSpan.textContent = langCodes[lang];
-        }
-
-        // Update active state in dropdown
-        langOptions.forEach(option => {
-            if (option.getAttribute('data-lang') === lang) {
-                option.classList.add('active');
-            } else {
-                option.classList.remove('active');
-            }
-        });
-
-        // Translate all elements with data-translate attribute
-        const elementsToTranslate = document.querySelectorAll('[data-translate]');
-        elementsToTranslate.forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            }
-        });
-
-        // Handle RTL for Arabic
-        if (lang === 'ar') {
-            document.body.setAttribute('dir', 'rtl');
-        } else {
-            document.body.setAttribute('dir', 'ltr');
-        }
-    }
 
     // Custom Notification Function
     function showNotification(message, type = 'success') {
