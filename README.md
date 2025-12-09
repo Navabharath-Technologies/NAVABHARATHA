@@ -1,6 +1,6 @@
-# Navabharath  Website
+# Navabharath Technologies Website
 
-This is a static HTML/CSS/JS website for Navabharath , designed based on the provided Figma mockup.
+This is a static HTML/CSS/JS website for Navabharath Technologies, designed based on the provided Figma mockup.
 
 ## Project Structure
 
