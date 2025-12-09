@@ -1,4 +1,4 @@
-# Navabharath  Website
+# Navabharatha  Website
 
 This is a static HTML/CSS/JS website for Navabharath, designed based on the provided Figma mockup.
 
