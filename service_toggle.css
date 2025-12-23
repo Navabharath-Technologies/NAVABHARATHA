@@ -1,0 +1,52 @@
+/* Service Card Details Toggle */
+.service-toggle {
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(14, 94, 114, 0.05);
+    /* very light background */
+}
+
+.service-toggle:hover {
+    color: var(--accent-color);
+    background: rgba(229, 176, 40, 0.1);
+    transform: translateY(2px);
+}
+
+.service-toggle.active {
+    transform: rotate(180deg);
+    background: rgba(14, 94, 114, 0.1);
+}
+
+.service-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    animation: fadeIn 0.4s ease;
+    text-align: left;
+    /* Ensure readability */
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZED Certification - Scheme Details</title>
+    <meta name="description" content="Detailed information about the MSME Sustainable (ZED) Certification Scheme.">
+    <!-- Favicon - Multiple Sizes for Better Compatibility -->
+    <!-- Favicon - Multiple Sizes for Better Compatibility -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon_192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_192.png">
+    <link rel="shortcut icon" type="image/png" href="favicon_32.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notification.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .page-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            align-items: flex-start;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .sidebar-nav li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar-nav li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+            color: #555;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: white;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-nav a:hover {
+            background-color: #fcfcfc;
+            color: var(--primary-color);
+        }
+
+        .sidebar-nav a.active {
+            background-color: #fff;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            box-shadow: inset 5px 0 0 -5px var(--primary-color);
+        }
+
+        .sidebar-nav a i {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .sidebar-nav a.active i {
+            color: var(--primary-color);
+        }
+
+        /* Sidebar Toggle for Mobile */
+        .sidebar-toggle {
+            display: none;
+            padding: 15px 20px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        .sidebar-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 992px) {
+            .sidebar-toggle {
+                display: flex;
+            }
+
+            .sidebar-nav {
+                display: none;
+                margin-top: 10px;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            .sidebar-nav.active {
+                display: block;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Documents Box */
+        .sidebar-documents {
+            margin-top: 30px;
+            background: #e6f7ff;
+            padding: 30px 25px;
+            border-radius: 8px;
+            border: 1px solid #91d5ff;
+        }
+
+        .sidebar-documents h4 {
+            color: #0050b3;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-documents ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-documents li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-documents a {
+            color: #4a5568;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s;
+        }
+
+        .sidebar-documents a:hover {
+            color: #0050b3;
+        }
+
+        .sidebar-documents i {
+            color: #ff4d4f;
+            /* PDF Red */
+            font-size: 1.1rem;
+        }
+
+        /* Main Content Styling */
+        .content-area {
+            flex-grow: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            min-height: 600px;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .content-section p {
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #4a5568;
+        }
+
+        .content-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        blockquote {
+            background: #f8f9fa;
+            border-left: 5px solid var(--accent-color);
+            margin: 30px 0;
+            padding: 20px;
+            font-style: italic;
+            color: #555;
+            text-align: justify;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .page-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 40px;
+            }
+        }
+
+        /* Footer Styles */
+        /* ... existing footer styles ... */
+
+        .btn-get-certified {
+            display: inline-block;
+            min-width: 280px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-get-certified:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+            color: white;
+        }
+
+
+
+        /* Levels Grid */
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .level-card {
+            background: #e9e8e6;
+            padding: 20px 20px 20px 50px;
+            border-radius: 12px;
+            position: relative;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .level-badge {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        .level-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .level-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.3;
+            color: #031b26;
+        }
+
+        /* Badge Styles */
+        .badge-bronze {
+            background: linear-gradient(135deg, #e79c72, #cd7f32);
+            color: white;
+            border: 4px solid #fff;
+        }
+
+        .text-bronze {
+            color: #cd7f32;
+        }
+
+        .badge-silver {
+            background: linear-gradient(135deg, #ece9e6, #bdc3c7);
+            color: #555;
+            border: 4px solid #fff;
+        }
+
+        .text-silver {
+            color: #7f8c8d;
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, #ffd700, #d4af37);
+            color: white;
+            border: 4px solid #fff;
+        }
+
+        .text-gold {
+            color: #b7950b;
+        }
+
+        @media (max-width: 900px) {
+            .levels-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                margin-left: 20px;
+            }
+        }
+
+        /* Image-based Levels Grid Override */
+        .levels-grid {
+            gap: 20px;
+            /* Ensure Grid mapping is correct */
+        }
+
+        .levels-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            display: block;
+        }
+
+        .levels-grid img:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 900px) {
+            .levels-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-left: 0;
+            }
+
+            .levels-grid img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Navbar -->
+    <!-- Header / Navbar -->
+    <header>
+        <!-- Top Header with Logo -->
+        <div class="top-header">
+            <div class="container top-header-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/navabharatha_logo.png" alt="Navabharatha">
+                </a>
+                <div class="zed-branding">
+                    <h3>NAVABHARATHA</h3>
+                    <p>SUSTAINABLE ORGANIZATION FOR CONSISTENCY</p>
+                    <small>REGSTD. 2023</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <div class="main-nav">
+        <div class="container main-nav-container">
+
+            <div class="nav-left-group">
+                <button class="back-btn" onclick="goBack()" aria-label="Go Back">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#home" data-translate="nav_home"><i class="fas fa-home mobile-home-icon"></i>
+                            Home</a>
+                    </li>
+                    <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+                    <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+                    <li><a href="index.html#dashboard" data-translate="nav_dashboard">Dashboard</a></li>
+                    <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <!-- Language Selector -->
+                <div class="language-selector desktop-lang-selector">
+                    <button class="lang-btn" id="langBtn" aria-label="Select Language">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang" class="current-lang-text">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="langDropdown">
+                        <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="kn">ಕನ್ನಡ (Kannada)</div>
+                        <div class="lang-option" data-lang="hi">हिंदी (Hindi)</div>
+                        <div class="lang-option" data-lang="ta">தமிழ் (Tamil)</div>
+                        <div class="lang-option" data-lang="te">తెలుగు (Telugu)</div>
+                        <div class="lang-option" data-lang="mr">मराठी (Marathi)</div>
+                        <div class="lang-option" data-lang="ml">മലയാളം (Malayalam)</div>
+                    </div>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content - Sidebar Layout -->
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-toggle" onclick="toggleSidebarMenu()" aria-label="Toggle Sidebar Menu">
+                <span id="sidebarToggleText" data-translate="sidebar_history">BRIEF HISTORY</span>
+                <i class="fas fa-chevron-down" id="sidebarToggleIcon"></i>
+            </div>
+            <ul class="sidebar-nav" id="sidebarNav">
+                <li><a href="#brief-history" class="active" onclick="showSection('brief-history')"
+                        data-translate="sidebar_history">BRIEF HISTORY <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#introduction" onclick="showSection('introduction')"
+                        data-translate="sidebar_intro">INTRODUCTION <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#objective" onclick="showSection('objective')" data-translate="sidebar_objective">OBJECTIVE
+                        <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#components" onclick="showSection('components')"
+                        data-translate="sidebar_components">COMPONENTS <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#levels" onclick="showSection('levels')" data-translate="sidebar_levels">ZED CERTIFICATION
+                        LEVELS <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#eligibility" onclick="showSection('eligibility')"
+                        data-translate="sidebar_eligibility">ELIGIBILITY <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#subsidy" onclick="showSection('subsidy')" data-translate="sidebar_subsidy">SUBSIDY ON COST
+                        OF CERTIFICATION <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#process" onclick="showSection('process')" data-translate="sidebar_process">CERTIFICATION
+                        PROCESS <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#gap-analysis" onclick="showSection('gap-analysis')"
+                        data-translate="sidebar_gap_analysis">GAP ANALYSIS & HANDHOLDING <i
+                            class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#surveillance" onclick="showSection('surveillance')"
+                        data-translate="sidebar_surveillance">SURVEILLANCE <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#renewal" onclick="showSection('renewal')" data-translate="sidebar_renewal">RENEWAL AFTER
+                        EXPIRY OF ZED CERTIFICATE <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#documents" onclick="showSection('documents')" data-translate="sidebar_documents">DOCUMENTS
+                        <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main style="flex-grow: 1;">
+            <div class="content-area">
+                <!-- Brief History -->
+                <div id="brief-history" class="content-section active">
+                    <h2 data-translate="history_title">Brief History</h2>
+                    <p data-translate="history_p1">Addressing the nation on India's 68th Independence Day, Hon'ble Prime
+                        Minister Shri Narendra Modi
+                        urged the industry, especially the Micro, Small and Medium Enterprises (MSMEs) of India, to
+                        manufacture goods in the country with "zero defects" and to ensure that the goods have "zero
+                        effect" on the environment.</p>
+
+                    <blockquote data-translate="history_quote1">"We should manufacture goods in such a way that they
+                        carry zero defect and that our
+                        exported goods are never returned to us. We should manufacture goods with zero effect that they
+                        should not have a negative impact on the environment".</blockquote>
+
+                    <p data-translate="history_p2">With an aim to make India a global manufacturing hub, the Prime
+                        Minister gave an open invitation
+                        to manufacturers and investors across the world to establish manufacturing units in India.</p>
+
+                    <blockquote data-translate="history_quote2">"I want to appeal to the entire people world over,
+                        "Come, make in India", "Come,
+                        manufacture in India". Sell in any country of the world but manufacture here. We have got skill,
+                        talent, discipline, and determination to do something," he said. He further said "We want to
+                        give the world a favourable opportunity that come here, "Come, Make in India" and we will say to
+                        the world, from electrical to electronics, "Come, Make in India", from automobiles to agro value
+                        addition "Come, Make in India", paper or plastic, "Come, Make in India", satellite or submarine
+                        "Come, Make in India". Our country is powerful. Come, I am giving you an invitation," he
+                        said."As I say to the world "Come, Make in India", I say to the youth of the country – it should
+                        be our dream that this message reaches every corner of the world, "Made in India". This should
+                        be our dream," added the PM.</blockquote>
+
+                    <p data-translate="history_p3">Ensuring competitiveness of India's MSME is critical as it will
+                        contribute to the overall growth
+                        of the manufacturing sector and the country's economy. International companies competing in
+                        global markets focus on their competitive strengths of costs acceptable to the market,
+                        technology, innovation, service delivery, lean manufacturing, and defect free products for Zero
+                        Defect and Zero Effect (ZED). It is hence prudent that we must quickly set the pace for the
+                        template of industrialisation and export fuelled growth to make a mark in global markets and
+                        improve our GDP.</p>
+
+                    <h3 style="margin-top: 30px; margin-bottom: 20px; font-size: 1.5rem; color: black;"
+                        data-translate="history_rationale_title">Rationale</h3>
+                    <p data-translate="history_rationale_p1">The announcement of Make in India and Zero Defect Zero
+                        Effect put in perspective the governments’
+                        intent to change the course of economy by focusing on manufacturing as an engine to sustained
+                        growth. In order to build the ecosystem to implement the idea, three important components
+                        emerged as the vehicle for this new transformation:</p>
+
+                    <ul style="margin-top: 15px; margin-bottom: 20px; margin-left: 20px;">
+                        <li data-translate="history_rationale_li1">The Ease of Doing Business in India.</li>
+                        <li data-translate="history_rationale_li2">The confidence in quality of source material,
+                            components and services.</li>
+                        <li data-translate="history_rationale_li3">Making available competent human resource to drive
+                            the change.</li>
+                    </ul>
+
+                    <p data-translate="history_rationale_p2">While the DPIIT took the responsibility of creating an
+                        atmosphere of Ease of doing business, M/o
+                        MSME along with QCI, started exploring the idea of creating a holistic scheme to engage the MSME
+                        sector, long considered as a propellant for sustained growth, by improving their quality and
+                        competitiveness.</p>
+
+                    <p data-translate="history_rationale_p3">ZED was thus born! The ecosystem around ZED model is
+                        calibrated to make aware, assess & certify,
+                        counsel, handhold MSMEs and ensure that they rise up the ZED ladder, thus enhancing their
+                        competitiveness in the global marketplace and making them truly "atmanirbhar". It also, as a
+                        consequence, provides career opportunities for the youth in India.</p>
+                </div>
+
+                <!-- Introduction -->
+                <div id="introduction" class="content-section">
+                    <h2 data-translate="intro_title">Introduction</h2>
+                    <p data-translate="intro_p1">As the MSMEs are amongst the strongest drivers of economic development,
+                        innovation and
+                        employment, it becomes imperative to strengthen their ecosystem. The Government of India
+                        envisioned the Zero Defect Zero Effect (ZED) initiative to enhance MSME competitiveness, make
+                        them sustainable and transform them as National and International Champions.</p>
+
+                    <p data-translate="intro_p2">MSME Sustainable (ZED) Certification is an extensive drive to create
+                        awareness amongst MSMEs
+                        about Zero Defect Zero Effect (ZED) practices and motivate & incentivise them for ZED
+                        Certification while also encouraging them to become MSME Champions. Through the journey of ZED
+                        Certification, MSMEs can reduce wastage substantially, increase productivity, enhance
+                        environmental consciousness, save energy, optimally use natural resources, expand their markets,
+                        etc. MSMEs will also be motivated to adopt best practices in work culture, standardisation of
+                        products, processes, systems etc. in order to enhance their global competitiveness and
+                        sustainability. The ZED Certification aims at enhancing the competitiveness of an MSME through
+                        assessment, handholding, managerial and technological intervention etc., hence it is not just a
+                        Certification.</p>
+
+                    <p data-translate="intro_p3">This Scheme is proposed to be implemented in 2 Phases:</p>
+
+                    <ul style="margin-top: 15px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 15px;"><strong data-translate="intro_phase1_title">Phase 1:</strong>
+                            <span data-translate="intro_phase1_desc">For Manufacturing MSMEs with UDYAM
+                                Registration. This phase will focus largely on maximizing inclusion of manufacturing
+                                MSMEs
+                                and taking them through the journey of ZED.</span>
+                        </li>
+                        <li><strong data-translate="intro_phase2_title">Phase 2:</strong> <span
+                                data-translate="intro_phase2_desc">Inclusion of Service Sector MSMEs. This phase will
+                                also strive to
+                                integrate those MSMEs (manufacturing and Service Sectors) who are registered under a
+                                State
+                                Government protocol/system but not on UDYAM. From this phase onwards, additional
+                                information
+                                regarding MSME operations/performance may be collected so as to create a National MSME
+                                Competitiveness Index.</span></li>
+                    </ul>
+
+                    <p data-translate="intro_p4">In phase 2, it is also envisaged to provide funding to the ZED
+                        Certified MSMEs to obtain
+                        international certifications, as necessary for international market and further, making
+                        provisions to align ZED Certification with the international certifications for its global
+                        acceptance.</p>
+                </div>
+
+                <!-- Objective -->
+                <div id="objective" class="content-section">
+                    <h2 data-translate="objective_title">Objective</h2>
+                    <p data-translate="objective_p1">The ZED Certification envisages promotion of Zero Defect Zero
+                        Effect (ZED) practices amongst
+                        MSMEs so
+                        as to:</p>
+                    <ul>
+                        <li data-translate="objective_li1">Encourage and enable MSMEs for manufacturing of quality
+                            products using latest technology,
+                            tools
+                            & to constantly upgrade their processes for achievement of high quality and high
+                            productivity
+                            with the least effect on the environment.</li>
+                        <li data-translate="objective_li2">Develop an Ecosystem for ZED Manufacturing in MSMEs, for
+                            enhancing competitiveness and
+                            enabling
+                            exports.</li>
+                        <li data-translate="objective_li3">Promote adoption of ZED practices and recognising the efforts
+                            of successful MSMEs.</li>
+                        <li data-translate="objective_li4">Encourage MSMEs to achieve higher ZED Certification levels
+                            through graded incentives.</li>
+                        <li data-translate="objective_li5">Increase public awareness on demanding Zero Defect and Zero
+                            Effect products through the MSME
+                            Sustainable (ZED) Certification.</li>
+                        <li data-translate="objective_li6">Identify areas to improve upon, thereby assisting the
+                            Government in policy decisions and
+                            investment prioritization.</li>
+                    </ul>
+                </div>
+
+                <!-- Components -->
+                <div id="components" class="content-section">
+                    <h2 data-translate="components_title">Components</h2>
+                    <ol>
+                        <li style="margin-bottom: 20px;"><strong data-translate="comp_li1_title">Industry Awareness
+                                Programmes/Workshop:</strong> <span data-translate="comp_li1_desc">MSMEs
+                                will be made aware of the MSME Sustainable (ZED) Certification through nation-wide
+                                awareness
+                                programmes (online and/or face-to-face, as appropriate) with the assistance of
+                                stakeholders
+                                like Industry Associations, Implementing Agencies, MSME-DIs, District Industries Centres
+                                (DICs), Large Enterprises/OEMs, BEE.</span></li>
+
+                        <li style="margin-bottom: 20px;"><strong data-translate="comp_li2_title">Training
+                                Programmes:</strong> <span data-translate="comp_li2_desc">Stakeholders like the
+                                MSME Officers, Assessors and Consultants will be trained on the MSME Sustainable (ZED)
+                                Certification to enable an effective implementation by partners like QCI, BIS,
+                                NPC.</span></li>
+
+                        <li style="margin-bottom: 20px;"><strong data-translate="comp_li3_title">Assessment &
+                                Certification:</strong> <span data-translate="comp_li3_desc">MSMEs will be
+                                assessed (desktop verification, remote assessment, onsite assessment; as applicable) and
+                                awarded relevant Certification Level for which they have applied for after fulfilling
+                                the
+                                requirements of that Level.</span></li>
+
+                        <li style="margin-bottom: 20px;"><strong data-translate="comp_li4_title">Handholding:</strong>
+                            <span data-translate="comp_li4_desc">MSMEs will be provided
+                                handholding to help them achieve higher ZED Certification levels and also towards
+                                technology
+                                upgradation for moving towards zero effect solutions/pollution control measures/cleaner
+                                technology.</span>
+                        </li>
+
+                        <li style="margin-bottom: 20px;"><strong
+                                data-translate="comp_li5_title">Benefits/Incentives:</strong> <span
+                                data-translate="comp_li5_desc">Graded incentives will be
+                                announced by the Ministry of MSME for MSMEs so as to motivate them to achieve higher ZED
+                                Certification levels. These incentives will also include assistance to MSMEs in their
+                                preparedness & response to COVID-19 pandemic, called MSME KAWACH (Knowledge Acquisition
+                                through WASH for an Accelerated COVID-19 Handling)which is based on the WASH (Workplace
+                                Assessment for Safety & Hygiene) Standard.</span></li>
+
+                        <li style="margin-bottom: 20px;"><strong data-translate="comp_li6_title">PR campaign,
+                                Advertising & Brand Promotion:</strong>
+                            <span data-translate="comp_li6_desc">For popularizing the MSME Sustainable (ZED)
+                                Certification and brand promotion of ZED, a
+                                nation-wide publicity will be done.</span>
+                        </li>
+
+                        <li style="margin-bottom: 20px;"><strong data-translate="comp_li7_title">Digital
+                                Platform:</strong> <span data-translate="comp_li7_desc">MSME Sustainable (ZED)
+                                Certification process will be e-enabled through a single window digital platform and
+                                minimum
+                                use of paper.</span></li>
+                    </ol>
+                </div>
+
+                <!-- ZED Certification Levels -->
+                <div id="levels" class="content-section">
+                    <h2 data-translate="levels_title">ZED Certification Levels</h2>
+                    <p data-translate="levels_p1">MSME Sustainable (ZED) Certification can be attained in THREE Levels
+                        after registering and taking
+                        the ZED Pledge:</p>
+
+                    <div class="levels-grid">
+                        <img src="assets/zed_bronze.png" alt="Bronze Level">
+                        <img src="assets/zed_silver.png" alt="Silver Level">
+                        <img src="assets/zed_gold.png" alt="Gold Level">
+                    </div>
+
+                    <div class="zed-pledge-info" style="margin-top: 30px;">
+                        <h3 style="color: black; font-size: 1.5rem; margin-bottom: 20px;"
+                            data-translate="levels_pledge_title">ZED Pledge</h3>
+
+                        <ul style="margin-bottom: 20px;">
+                            <li data-translate="levels_li1"><strong>Certification Level 1:</strong> BRONZE</li>
+                            <li data-translate="levels_li2"><strong>Certification Level 2:</strong> SILVER</li>
+                            <li data-translate="levels_li3"><strong>Certification Level 3:</strong> GOLD</li>
+                        </ul>
+
+                        <p data-translate="levels_pledge_p1">Every MSME that embarks on the journey of ZED will have to
+                            take a “ZED Pledge” before
+                            applying for a ZED Certification Level (Bronze, Silver, Gold).</p>
+
+                        <p data-translate="levels_pledge_p2">Certification on WASH Standard & other capacity building
+                            measures through MSME KAWACH will be
+                            available to MSMEs immediately after taking ZED Pledge.</p>
+
+                        <p data-translate="levels_pledge_p3">After taking the ZED Pledge, the MSME can apply for any
+                            Certification Level if it feels that
+                            it can fulfil the requirements mentioned in each level. The intent of taking a ZED Pledge is
+                            to take a “pre-commitment” or a solemn promise by MSMEs to uphold the values of Zero Defect
+                            Zero Effect in their practices and to urge them to move ahead on the journey of ZED.</p>
+                    </div>
+                </div>
+
+                <!-- Eligibility -->
+                <div id="eligibility" class="content-section">
+                    <h2 data-translate="eligibility_title">Eligibility</h2>
+                    <p data-translate="eligibility_p1">All MSMEs registered with the UDYAM registration portal (of the
+                        MoMSME) will be eligible to
+                        participate in MSME Sustainable (ZED) Certification and avail related benefits/incentives.</p>
+                </div>
+
+                <!-- Subsidy -->
+                <div id="subsidy" class="content-section">
+                    <h2 data-translate="subsidy_title">Subsidy on Cost of Certification</h2>
+                    <p data-translate="subsidy_p1">Any number of Units registered under one Udyam Registration can apply
+                        for subsidy under this
+                        Scheme. Each Unit (under one Udyam Registration) will need to apply for Certification separately
+                        to avail subsidy/benefits/incentives.</p>
+
+                    <ol type="a" style="margin-left: 20px;">
+                        <li data-translate="subsidy_li_a">MSMEs will be given financial assistance/subsidy for obtaining
+                            for a ZED Certification
+                            Level.</li>
+                        <li><span data-translate="subsidy_li_b">An MSME unit will get subsidy as per the following
+                                structure, on the cost of certification:</span>
+                            <ol type="i" style="margin-left: 20px; margin-top: 10px;">
+                                <li data-translate="subsidy_li_b_i">Micro Enterprises: 80%</li>
+                                <li data-translate="subsidy_li_b_ii">Small Enterprises: 60%</li>
+                                <li data-translate="subsidy_li_b_iii">Medium Enterprises: 50%</li>
+                            </ol>
+                        </li>
+                    </ol>
+
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; color: black;" data-translate="subsidy_add_title">
+                        Additional Subsidy:
+                    </h4>
+                    <ol style="margin-left: 20px; margin-bottom: 25px;">
+                        <li style="margin-bottom: 15px;" data-translate="subsidy_add_li1">There will be an additional
+                            subsidy of 10% for the MSMEs owned
+                            by Women/SC/ST Entrepreneurs OR MSMEs in NER/Himalayan/LWE/Island territories/aspirational
+                            districts.</li>
+                        <li data-translate="subsidy_add_li2">In addition to above, there will be an additional subsidy
+                            of 5% for MSMEs which are also a
+                            part of the SFURTI OR Micro & Small Enterprises - Cluster Development Programme (MSE-CDP) of
+                            the Ministry.</li>
+                    </ol>
+
+                    <p data-translate="subsidy_p2">MSMEs may opt for upgrading their Certification Level at any point of
+                        time before the expiry of
+                        validity of their existing ZED Certification. Cost and subsidy will remain the same for the
+                        applied Level.</p>
+
+                    <ol type="a" start="3" style="margin-left: 20px; margin-top: 25px;">
+                        <li><span data-translate="subsidy_li_c">A limited-purpose joining reward of Rs. 10,000/- will be
+                                offered to each MSME once they take
+                                the ZED Pledge which needs to be utilized within a defined time period for the purpose
+                                defined as per the following modalities:</span>
+                            <ol style="margin-left: 20px; margin-top: 15px;">
+                                <li style="margin-bottom: 15px;" data-translate="subsidy_li_c_i">This joining reward may
+                                    be used by an applicant MSME
+                                    only once while applying for a ZED Certification (Bronze, Silver, Gold).</li>
+                                <li style="margin-bottom: 15px;" data-translate="subsidy_li_c_ii">If the joining reward
+                                    is used for any Certification,
+                                    then the cost of the reward will be first deducted from the cost of Certification
+                                    and then the Subsidy may apply if applicable. For example, if an MSME uses the
+                                    reward for applying for Bronze Certification, the effective cost to MSME becomes
+                                    zero, while in case an MSME applies for the Silver or Gold Certification, the reward
+                                    amount will be adjusted in the Certification Cost and the subsidy will apply on the
+                                    balance amount as per the type of the MSME (Micro, Small or Medium).</li>
+                                <li data-translate="subsidy_li_c_iii">This joining reward will be valid only for 1 year
+                                    after taking the ZED Pledge.</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Certification Process -->
+                <div id="process" class="content-section">
+                    <h2 data-translate="process_title">Certification Process</h2>
+                    <p data-translate="process_p1">ZED Certification can be attained on 3 levels after taking the ZED
+                        Pledge:</p>
+
+                    <div style="margin: 20px 0; font-weight: bold; font-size: 1.2rem; text-align: center; color: black;"
+                        data-translate="process_pledge_title">ZED Pledge
+                    </div>
+
+                    <ul
+                        style="list-style-type: none; padding: 0; margin-bottom: 20px; text-align: center; padding-left: 0;">
+                        <li style="margin-bottom: 8px; text-align: center;" data-translate="levels_li1">
+                            <strong>Certification Level
+                                1:</strong> <span style="color: #cd7f32; font-weight: bold;">BRONZE</span>
+                        </li>
+                        <li style="margin-bottom: 8px; text-align: center;" data-translate="levels_li2">
+                            <strong>Certification Level
+                                2:</strong> <span style="color: #7f8c8d; font-weight: bold;">SILVER</span>
+                        </li>
+                        <li style="margin-bottom: 8px; text-align: center;" data-translate="levels_li3">
+                            <strong>Certification Level
+                                3:</strong> <span style="color: #d4af37; font-weight: bold;">GOLD</span>
+                        </li>
+                    </ul>
+
+                    <ol type="a" style="margin-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 15px;" data-translate="process_li_a">After taking the ZED Pledge, an
+                            MSME can apply online for any
+                            Certification Level (Bronze, Silver, Gold) and would need to conform to all the requirements
+                            of the level applied for, in order to obtain the Certification.</li>
+                        <li style="margin-bottom: 15px;" data-translate="process_li_b">Every MSME embarking on the
+                            journey of ZED must submit an
+                            Undertaking.</li>
+                        <li style="margin-bottom: 15px;" data-translate="process_li_c">In case of a non-conformity, the
+                            applicant MSME would be given
+                            an opportunity to close the non-conformity(ies), in a defined time period, in order to be
+                            eligible for the desired level/Certification.</li>
+                        <li data-translate="process_li_d">The Final ZED Certificate will be issued based upon the
+                            findings and recommendation of the
+                            Accredited Assessment Agencies.</li>
+                    </ol>
+
+                    <p style="margin-bottom: 15px;" data-translate="process_p2">Ministry of MSME reserves the right to
+                        visit & inspect any MSME
+                        after Certification, which has availed any subsidy, benefit or incentives under this Scheme.</p>
+
+                    <p data-translate="process_p3">The process flow and requirement for each level is highlighted in
+                        subsequent pages.</p>
+                </div>
+
+                <!-- Gap Analysis & Handholding -->
+                <div id="gap-analysis" class="content-section">
+                    <h2 data-translate="gap_title">Gap Analysis & Handholding</h2>
+                    <p data-translate="gap_p1">MSMEs with minimum Bronze certification are eligible to apply for
+                        handholding support. A
+                        provision of up to Rs. 5 Lakhs (per MSME) has been made available for handholding and
+                        consultancy support for MSMEs under ZED Certification for assisting them to move towards Zero
+                        Defect Zero Effect solutions. Out of this, an amount upto Rs. 2 Lakhs to be utilized for
+                        handholding support (as needed) through consulting organizations and up to Rs. 3 Lakhs may be
+                        utilized towards technology upgradation for moving towards zero effect solutions/pollution
+                        control measures/cleaner technology. The utilization of the Financial Support of upto Rs.
+                        3,00,000/- for moving towards zero effect solutions will be subject to Consultant’s
+                        recommendations, verification by respective MSME-DI and approval by the PMAC.</p>
+
+                    <p style="margin-top: 15px;" data-translate="gap_p2">The Ministry will subsidize the handholding
+                        support and technology
+                        upgradation financial support for moving towards zero effect solutions, as follows:</p>
+
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li data-translate="gap_li1">Micro Enterprises: 80%</li>
+                        <li data-translate="gap_li2">Small Enterprises: 60%</li>
+                        <li data-translate="gap_li3">Medium Enterprises: 50%</li>
+                    </ul>
+
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; color: black;" data-translate="gap_add_title">
+                        Additional Subsidy:</h4>
+                    <ol style="margin-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 15px;" data-translate="gap_add_li1">There will be an additional
+                            subsidy of 10% for the MSMEs owned
+                            by Women/SC/ST Entrepreneurs OR MSMEs in NER/Himalayan/LWE/Island territories/aspirational
+                            districts.</li>
+                        <li data-translate="gap_add_li2">In addition to above, there will be an additional subsidy of 5%
+                            for MSMEs which are also a
+                            part of the SFURTI OR Micro & Small Enterprises - Cluster Development Programme (MSE-CDP) of
+                            the Ministry.</li>
+                    </ol>
+                </div>
+
+                <!-- Surveillance -->
+                <div id="surveillance" class="content-section">
+                    <h2 data-translate="surv_title">Surveillance</h2>
+                    <p data-translate="surv_p1">A surveillance assessment (after a period of 18 months of achieving ZED
+                        Certification) will be
+                        conducted by QCI’s Accredited Assessment Agencies as a part of the ZED Certification. The
+                        surveillance assessment will only be applicable to those MSMEs which have achieved Silver & Gold
+                        Certification levels.</p>
+
+                    <p style="margin-top: 15px;" data-translate="surv_p2">The surveillance assessment will be conducted
+                        as a remote assessment
+                        for both Silver & Gold levels and the cost of the assessment will be as under:</p>
+
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li data-translate="surv_li1">ZED Silver Level: Rs. 10,000/-</li>
+                        <li data-translate="surv_li2">ZED Gold Level: Rs. 20,000/-</li>
+                    </ul>
+
+                    <p data-translate="surv_p3">The MSMEs will be given financial assistance/subsidy for the
+                        surveillance assessment as per the
+                        following structure:</p>
+
+                    <ol style="margin-left: 20px; margin-bottom: 20px;">
+                        <li data-translate="surv_ol1">Micro Enterprises: 80%</li>
+                        <li data-translate="surv_ol2">Small Enterprises: 60%</li>
+                        <li data-translate="surv_ol3">Medium Enterprises: 50%</li>
+                    </ol>
+                </div>
+
+                <!-- Renewal -->
+                <div id="renewal" class="content-section">
+                    <h2 data-translate="renewal_title">Renewal after expiry of ZED Certificate</h2>
+                    <p data-translate="renewal_p1">After the expiry of the validity of the ZED Certificate, MSMEs can go
+                        for Renewal of their ZED
+                        Certification level in order to continue availing associated benefits/incentives.</p>
+                </div>
+
+                <!-- Documents Section -->
+                <div id="documents" class="content-section">
+                    <h2 data-translate="docs_title">Documents</h2>
+
+                    <h4 style="margin: 20px 0 10px; font-size: 1.1rem; color: #005f73;"
+                        data-translate="docs_guidelines">Guidelines</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/Amendment_ZED_guideline_2.0_17.9.2024.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link1">Addendum - 2 to
+                                    MSME Sustainable (ZED) Certification Scheme Guidelines</span></a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://zed.msme.gov.in/uploads/Subsidy_Women.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link2">Free ZED
+                                    Certification For Women Owned MSMEs</span></a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://zed.msme.gov.in/uploads/Guideline_Book.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link3">MSME Sustainable
+                                    (ZED) Certification Scheme Guidelines</span></a></li>
+                    </ul>
+
+                    <h4 style="margin: 30px 0 10px; font-size: 1.1rem; color: #005f73;" data-translate="docs_zed_cert">
+                        ZED Certification</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/User_Manual_for_ZED_Registration_20.04.2022_2022.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link4">ZED Registration
+                                    User Manual</span></a></li>
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/User_Manual_Bronze_Certification_20.04.2022.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link5">ZED Bronze
+                                    Certification Manual</span></a></li>
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/User_Manual_Gold_Certification.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link6">ZED Silver and
+                                    Gold Certification Manual</span></a></li>
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/User_Manual_Financial_Assistance_vf_20220822143211.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link7">ZED User Manual
+                                    for Financial Assistance</span></a></li>
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/Applicant_User_Manual_Handholding_Support_08.12.2022.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link8">ZED User Manual
+                                    for Handholding Support</span></a></li>
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/Surveillance_MSME_25.03.2025.pdf" target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link9">ZED User Manual
+                                    for Surveillance Assessment</span></a></li>
+                        <li style="margin-bottom: 12px;"><a href="#"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-powerpoint"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e67e22;"></i> <span
+                                    data-translate="docs_link10">ZED Awareness
+                                    PPT</span></a></li>
+                    </ul>
+
+                    <h4 style="margin: 30px 0 10px; font-size: 1.1rem; color: #005f73;" data-translate="docs_kawach">
+                        MSME KAWACH</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/WASH_Standard_Guidance_Document.pdf"
+                                target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link11">WASH Standard
+                                    Guidance Document</span></a></li>
+                        <li style="margin-bottom: 12px;"><a
+                                href="https://zed.msme.gov.in/uploads/MSME_KAWACH_User_Manual.pdf" target="_blank"
+                                style="text-decoration: none; color: #4a5568; display: flex; align-items: flex-start;"><i
+                                    class="far fa-file-pdf"
+                                    style="margin-right: 10px; margin-top: 4px; color: #e74c3c;"></i> <span
+                                    data-translate="docs_link12">WASH Certification
+                                    User Manual</span></a></li>
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html#contact" class="btn-get-certified" data-translate="get_certified_btn">Get Certified
+                    Now</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column footer-logo-section">
+                <img src="assets/navabharatha_logo.png" alt="Navabharatha Logo">
+                <p class="footer-tagline" data-translate="footer_tagline">Vision to Increase Efficiency</p>
+            </div>
+            <div class="footer-column" style="flex: 0 0 200px;">
+                <h4 class="footer-heading" data-translate="footer_links_title">Quick Links</h4>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html#home" data-translate="nav_home">Home</a></li>
+                        <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+                        <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+                        <li><a href="index.html#dashboard" data-translate="nav_dashboard">Dashboard</a></li>
+                        <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Support -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-translate="footer_support_title">Support</h4>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="terms.html" data-translate="footer_terms">Terms and Conditions</a></li>
+                        <li><a href="privacy.html" data-translate="footer_privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading" data-translate="footer_social_title">Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1SLmz1mbFB/" class="social-icon" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/navabharatha-sustainable-organization-523534393?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        class="social-icon" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/navabharatha_sustainable?igsh=MTc2eTA4OWltYnZscQ=="
+                        class="social-icon" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSidebarMenu() {
+            const nav = document.getElementById('sidebarNav');
+            const icon = document.getElementById('sidebarToggleIcon');
+            nav.classList.toggle('active');
+
+            if (nav.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update active link
+            const links = document.querySelectorAll('.sidebar-nav a');
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Find the link that was clicked (active element might be icon)
+            const activeLink = document.querySelector(`.sidebar-nav a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+
+                // Update toggle text on mobile
+                if (window.innerWidth <= 992) {
+                    const toggleSpan = document.getElementById('sidebarToggleText');
+                    const translateKey = activeLink.getAttribute('data-translate');
+                    if (toggleSpan) {
+                        toggleSpan.innerText = activeLink.innerText.trim();
+                        if (translateKey) {
+                            toggleSpan.setAttribute('data-translate', translateKey);
+                        }
+                    }
+
+                    // Close menu on selection
+                    const nav = document.getElementById('sidebarNav');
+                    if (nav.classList.contains('active')) {
+                        toggleSidebarMenu();
+                    }
+                }
+            }
+
+            // Scroll to top of content on mobile
+            if (window.innerWidth <= 992) {
+                document.querySelector('.page-container').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Handle URL hash on load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+    </script>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

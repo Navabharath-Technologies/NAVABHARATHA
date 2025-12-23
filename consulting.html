@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZED Consulting - Navabharatha</title>
+    <meta name="description" content="Expert ZED Consulting and Handholding services for MSMEs.">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notification.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        /* Sidebar Layout - Inlined */
+        .page-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            gap: 40px;
+            min-height: 60vh;
+        }
+
+        .sidebar {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .sidebar-nav li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar-nav li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background-color: #f8fafc;
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .sidebar-nav a i {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .sidebar-nav a:hover i {
+            color: var(--primary-color);
+        }
+
+        .content-area {
+            flex: 1;
+        }
+
+        .content-area h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .content-area h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .content-area p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .content-area blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Documents in Sidebar */
+        .sidebar-documents {
+            margin-top: 30px;
+            background-color: #f0f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bae6fd;
+        }
+
+        .sidebar-documents h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .sidebar-documents ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-documents li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-documents a {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transition: color 0.2s;
+        }
+
+        .sidebar-documents a:hover {
+            color: var(--primary-color);
+        }
+
+        .sidebar-documents i {
+            color: #ef4444;
+            margin-top: 3px;
+        }
+
+        /* Responsive Sidebar */
+        @media (max-width: 992px) {
+            .page-container {
+                flex-direction: column;
+                margin-top: 30px;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .sidebar-toggle {
+                display: flex !important;
+            }
+
+            .sidebar-nav {
+                display: none;
+                margin-top: 10px;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            .sidebar-nav.active {
+                display: block;
+            }
+        }
+
+        /* Sidebar Toggle for Mobile */
+        .sidebar-toggle {
+            display: none;
+            padding: 15px 20px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        .sidebar-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Section Animations */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Content Section Animations */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Navbar -->
+    <header>
+        <!-- Top Header with Logo -->
+        <div class="top-header">
+            <div class="container top-header-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/navabharatha_logo.png" alt="Navabharatha">
+                </a>
+                <div class="zed-branding">
+                    <h3>NAVABHARATHA</h3>
+                    <p>SUSTAINABLE ORGANIZATION FOR CONSISTENCY</p>
+                    <small>REGSTD. 2023</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <div class="main-nav">
+        <div class="container main-nav-container">
+
+            <div class="nav-left-group">
+                <button class="back-btn" onclick="goBack()" aria-label="Go Back">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#home" data-translate="nav_home"><i class="fas fa-home mobile-home-icon"></i>
+                            Home</a>
+                    </li>
+                    <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+                    <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+                    <li><a href="index.html#dashboard" data-translate="nav_dashboard">Dashboard</a></li>
+                    <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <!-- Language Selector -->
+                <div class="language-selector desktop-lang-selector">
+                    <button class="lang-btn" id="langBtn" aria-label="Select Language">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang" class="current-lang-text">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="langDropdown">
+                        <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="kn">ಕನ್ನಡ (Kannada)</div>
+                        <div class="lang-option" data-lang="hi">हिंदी (Hindi)</div>
+                        <div class="lang-option" data-lang="ta">தமிழ் (Tamil)</div>
+                        <div class="lang-option" data-lang="te">తెలుగు (Telugu)</div>
+                        <div class="lang-option" data-lang="mr">मराठी (Marathi)</div>
+                        <div class="lang-option" data-lang="ml">മലയാളം (Malayalam)</div>
+                    </div>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <section class="page-header" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h1 data-translate="consulting_title">ZED Consulting</h1>
+            <p data-translate="consulting_subtitle">Expert Guidance for Your ZED Journey</p>
+
+        </div>
+    </section>
+
+    <div class="page-container" style="margin-top: 20px;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-toggle" onclick="toggleSidebarMenu()" aria-label="Toggle Sidebar Menu">
+                <span id="sidebarToggleText" data-translate="sidebar_consulting_services">CONSULTING SERVICES</span>
+                <i class="fas fa-chevron-down" id="sidebarToggleIcon"></i>
+            </div>
+            <ul class="sidebar-nav" id="sidebarNav">
+                <li><a href="#services" onclick="showSection('services')" class="active"
+                        data-translate="sidebar_consulting_services">CONSULTING SERVICES <i
+                            class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#help" onclick="showSection('help')" data-translate="sidebar_how_we_help">HOW WE HELP <i
+                            class="fas fa-chevron-right"></i></a>
+                </li>
+                <li><a href="#why-us" onclick="showSection('why-us')" data-translate="sidebar_why_us">WHY CHOOSE US <i
+                            class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main style="flex-grow: 1;">
+            <div class="content-area">
+                <div id="services" class="content-section active">
+                    <h2 data-translate="consulting_services_title">Our Consulting Services</h2>
+                    <p data-translate="consulting_services_p1">Our expert consulting services guide MSMEs through the
+                        entire ZED journey. We provide handholding
+                        support to help you understand the parameters, improve your processes, and achieve your desired
+                        certification level (Bronze, Silver, or Gold).</p>
+                </div>
+
+                <div id="help" class="content-section">
+                    <h2 data-translate="consulting_help_title">How We Help</h2>
+                    <ul>
+                        <li data-translate="consulting_help_li1"><strong>Gap Analysis:</strong> We analyze your current
+                            systems against ZED parameters to
+                            identify areas for improvement.</li>
+                        <li data-translate="consulting_help_li2"><strong>Documentation Support:</strong> Assistance in
+                            preparing and organizing the necessary
+                            documentation for certification.</li>
+                        <li data-translate="consulting_help_li3"><strong>Process Optimization:</strong> Guidance on
+                            implementing Zero Defect Zero Effect
+                            practices in your manufacturing.</li>
+                        <li data-translate="consulting_help_li4"><strong>Pre-assessment Audits:</strong> We conduct mock
+                            assessments to ensure you are ready
+                            for the final audit.</li>
+                    </ul>
+                </div>
+
+                <div id="why-us" class="content-section">
+                    <h2 data-translate="consulting_why_title">Why Choose Us?</h2>
+                    <p data-translate="consulting_why_p1">With our deep understanding of the ZED scheme and experience
+                        in industrial consulting, we ensure
+                        a smooth and successful certification process for your organization.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html#contact" class="btn-get-certified" data-translate="get_certified_btn">Get Certified
+                    Now</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column footer-logo-section">
+                <img src="assets/navabharatha_logo.png" alt="Navabharatha Logo">
+                <p class="footer-tagline" data-translate="footer_tagline">Vision to Increase Efficiency</p>
+            </div>
+            <div class="footer-column" style="flex: 0 0 200px;">
+                <h4 class="footer-heading" data-translate="footer_links_title">Quick Links</h4>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html#home" data-translate="nav_home">Home</a></li>
+                        <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+                        <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+                        <li><a href="index.html#dashboard" data-translate="nav_dashboard">Dashboard</a></li>
+                        <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Support -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-translate="footer_support_title">Support</h4>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="terms.html" data-translate="footer_terms">Terms and Conditions</a></li>
+                        <li><a href="privacy.html" data-translate="footer_privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading" data-translate="footer_social_title">Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1SLmz1mbFB/" class="social-icon" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/navabharatha-sustainable-organization-523534393?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        class="social-icon" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/navabharatha_sustainable?igsh=MTc2eTA4OWltYnZscQ=="
+                        class="social-icon" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSidebarMenu() {
+            const nav = document.getElementById('sidebarNav');
+            const icon = document.getElementById('sidebarToggleIcon');
+            nav.classList.toggle('active');
+
+            if (nav.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update active link
+            const links = document.querySelectorAll('.sidebar-nav a');
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Find the link that was clicked
+            const activeLink = document.querySelector(`.sidebar-nav a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+
+                // Update toggle text on mobile
+                const toggleSpan = document.getElementById('sidebarToggleText');
+                const translateKey = activeLink.getAttribute('data-translate');
+                if (toggleSpan) {
+                    toggleSpan.innerText = activeLink.innerText.trim();
+                    if (translateKey) {
+                        toggleSpan.setAttribute('data-translate', translateKey);
+                    }
+                }
+
+                // Close menu on selection for mobile
+                if (window.innerWidth <= 992) {
+                    const nav = document.getElementById('sidebarNav');
+                    if (nav.classList.contains('active')) {
+                        toggleSidebarMenu();
+                    }
+                }
+            }
+
+            // Scroll to top of content on mobile
+            if (window.innerWidth <= 992) {
+                document.querySelector('.page-container').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Handle URL hash on load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+    </script>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

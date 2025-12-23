@@ -1,78 +1,86 @@
-/* Custom Notification Styles */
+/* Custom Notification Styles - Premium Theme */
 .custom-notification {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    min-width: 300px;
-    max-width: 500px;
-    padding: 16px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    font-size: 16px;
+    top: 24px;
+    right: 24px;
+    min-width: 320px;
+    max-width: 450px;
+    padding: 16px 20px 16px 24px;
+    border-radius: var(--radius-md);
+    background: white;
+    color: var(--text-main);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
     font-weight: 500;
     z-index: 10000;
-    display: none;
-    animation: slideIn 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: translateX(120%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.3s;
+    border-left: 4px solid transparent;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .custom-notification.show {
-    display: block;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-notification::before {
+    content: '';
+    /* Placeholder for icon if needed, or handled via border */
 }
 
 .custom-notification.success {
-    background-color: #327687;
-    color: white;
+    border-left-color: #10b981;
 }
 
 .custom-notification.error {
-    background-color: #ef4444;
-    color: white;
+    border-left-color: #ef4444;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+/* Optional: Add icon using pseudo-element if not in HTML */
+.custom-notification.success::after {
+    /* content: '\f00c'; FontAwesome check */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #10b981;
+    opacity: 0.2;
+    font-size: 1.5rem;
 }
 
-@keyframes slideOut {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateX(400px);
-        opacity: 0;
-    }
+.custom-notification.error::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    /* content: '\f071';  FontAwesome warning */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ef4444;
+    opacity: 0.2;
+    font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {
     .custom-notification {
-        right: 20px;
-        left: 20px;
-        min-width: auto;
-        width: auto;
-        max-width: none;
         top: 20px;
-        text-align: center;
+        left: 20px;
+        right: 20px;
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        transform: translateY(-150%);
     }
 
-    @keyframes slideIn {
-        from {
-            transform: translateY(-100px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
+    .custom-notification.show {
+        transform: translateY(0);
     }
 }
